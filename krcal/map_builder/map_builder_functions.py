@@ -721,6 +721,12 @@ def map_builder(config):
 
     print("    Number of bins: {0}x{0}".format(number_of_bins))
 
+    from invisible_cities.core.core_functions import in_range
+    sel  = ~in_range(dst_passed_cut.X.values, -40, -32)
+    sel |= ~in_range(dst_passed_cut.Y.values, 120, 128)
+
+    dst_passed_cut.loc[sel, "S2e"] = np.random.normal(1, 0.0001, size=np.count_nonzero(sel))
+
     final_map = compute_map(dst        = dst_passed_cut   ,
                             run_number = config.run_number,
                             XYbins     = (number_of_bins  ,
