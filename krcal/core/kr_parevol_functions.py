@@ -8,7 +8,7 @@ from . kr_types             import masks_container
 
 from invisible_cities.reco .corrections     import apply_all_correction
 from invisible_cities.reco .corrections     import norm_strategy
-from invisible_cities.icaro.  hst_functions import resolution
+from ..      icaro_from_ic .hst_functions   import resolution
 
 from typing import List
 from typing import Tuple
