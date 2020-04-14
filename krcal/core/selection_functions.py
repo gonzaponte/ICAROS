@@ -23,7 +23,7 @@ from typing      import  Dict
 from pandas      import DataFrame
 
 from   invisible_cities.core .core_functions  import in_range
-from   invisible_cities.icaro. hst_functions  import shift_to_bin_centers
+from   invisible_cities.core .core_functions  import shift_to_bin_centers
 
 from . fit_lt_functions     import fit_lifetime_unbined
 from . fit_functions        import fit_slices_1d_gauss
