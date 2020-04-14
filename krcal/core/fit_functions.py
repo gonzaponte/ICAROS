@@ -20,9 +20,9 @@ import invisible_cities.core .fit_functions  as     fitf
 import invisible_cities.database.load_db     as     DB
 from   invisible_cities.core .core_functions import in_range
 from   invisible_cities.core .stat_functions import poisson_sigma
-from   invisible_cities.evm  .ic_containers  import Measurement
-from   invisible_cities.evm  .ic_containers  import FitFunction
-from   invisible_cities.icaro.hst_functions  import shift_to_bin_centers
+from   . kr_types  import Measurement
+from   . kr_types  import FitFunction
+from   invisible_cities.core.core_functions  import shift_to_bin_centers
 
 
 log = logging.getLogger(__name__)
