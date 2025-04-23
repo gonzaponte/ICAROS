@@ -96,9 +96,9 @@ def fit_lifetime(z       : np.array,
                    range2 = range_e)
 
     if fit == FitType.profile:
-        fp, fp2, fr = fit_lifetime_profile(z, e, nbins_z, range_z)
+        fp, fp2, fr    = fit_lifetime_profile(z, e, nbins_z, range_z)
     else:
-        fp, fp2, fr = fit_lifetime_unbined(z, e, nbins_z, range_z)
+        fp, fp2, fr, _ = fit_lifetime_unbined(z, e, nbins_z, range_z)
 
     return FitCollection2(fp = fp, fp2 = fp2, hp = hp, fr = fr)
     logging.debug(f' fp ={fp}, fp2 ={fp2} ')
@@ -287,7 +287,7 @@ def fit_lifetime_unbined(z       : np.array,
                    chi2 = c2,
                    valid = valid)
 
-    return fp, fp2, fr
+    return fp, fp2, fr, valid
 
 
 def pars_from_fcs(fcs : List[FitCollection])->Tuple[List[Measurement],
