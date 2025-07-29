@@ -30,8 +30,7 @@ jobs:
         git clone https://github.com/next-exp/IC.git
         cd IC
         git checkout origin/v2
-        cd ..
-
+        bash manage.sh install ${{ matrix.python-version }}
 
     - name: Run tests
       run: |
