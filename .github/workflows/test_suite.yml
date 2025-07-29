@@ -19,11 +19,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Get LFS files
       run: git lfs pull
+
     # - name: Fix Conda permissions on macOS
     #   run: sudo chown -R $UID $CONDA
     #   if: runner.os == 'macOS'
+
+    - name: HACK! remove default conda
+      # the default conda gives us trouble, kill it
+      run: sudo unlink /usr/bin/conda
+
     - name: Install IC
       run: |
         cd ..
@@ -34,6 +41,8 @@ jobs:
 
     - name: Run tests
       run: |
+        # remove conda from path so we use our own conda
+        export PATH=`echo $PATH | tr ":" "\n" | grep -v "conda" | tr "\n" ":"`
         cd ..
         source $CONDA/etc/profile.d/conda.sh
         cd IC
