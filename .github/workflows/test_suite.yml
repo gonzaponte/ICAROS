@@ -20,12 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: tmate
-      uses: mxschmitt/action-tmate@v3
-
-    - name: tmate2
-      uses: mxschmitt/action-tmate@v3
-
     - name: Get LFS files
       run: git lfs pull
 
