@@ -23,6 +23,9 @@ jobs:
     - name: tmate
       uses: mxschmitt/action-tmate@v3
 
+    - name: tmate2
+      uses: mxschmitt/action-tmate@v3
+
     - name: Get LFS files
       run: git lfs pull
 
