@@ -27,12 +27,13 @@ jobs:
     #   run: sudo chown -R $UID $CONDA
     #   if: runner.os == 'macOS'
 
-    - name: HACK! remove default conda
-      # the default conda gives us trouble, kill it
-      run: sudo unlink /usr/bin/conda
+    # - name: HACK! remove default conda
+    #   # the default conda gives us trouble, kill it
+    #   run: sudo unlink /usr/bin/conda
 
     - name: Install IC
       run: |
+        source $CONDA/etc/profile.d/conda.sh
         cd ..
         git clone https://github.com/next-exp/IC.git
         cd IC
