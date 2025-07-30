@@ -41,8 +41,6 @@ jobs:
 
     - name: Run tests
       run: |
-        # remove conda from path so we use our own conda
-        export PATH=`echo $PATH | tr ":" "\n" | grep -v "conda" | tr "\n" ":"`
         cd ..
         source $CONDA/etc/profile.d/conda.sh
         cd IC
