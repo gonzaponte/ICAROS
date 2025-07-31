@@ -27,24 +27,22 @@ jobs:
     #   run: sudo chown -R $UID $CONDA
     #   if: runner.os == 'macOS'
 
-    # - name: HACK! remove default conda
-    #   # the default conda gives us trouble, kill it
-    #   run: sudo unlink /usr/bin/conda
+    - name: HACK! remove default conda
+      # the default conda gives us trouble, kill it
+      run: sudo unlink /usr/bin/conda
 
     - name: Install IC
       run: |
-        source $CONDA/etc/profile.d/conda.sh
         cd ..
-        git clone https://github.com/next-exp/IC.git
+        git clone https://github.com/gonzaponte/IC.git
         cd IC
-        git checkout origin/v2
+        git checkout origin/bump-miniconda
         bash manage.sh install ${{ matrix.python-version }}
 
     - name: Run tests
       run: |
-        cd ..
-        source $CONDA/etc/profile.d/conda.sh
-        cd IC
+        cd ../IC
+        source scripts/setup_conda_gha.sh
         source manage.sh work_in_python_version_no_tests ${{ matrix.python-version }}
         cd ../ICAROS
         source icaro_setup.sh
